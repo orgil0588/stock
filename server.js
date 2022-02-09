@@ -4,11 +4,12 @@ const Sentiment = require("./models/Sentiment");
 const interval = require("./service/crawler");
 
 connectDB();
-
+interval()
+// commit
 const port = 8080;
 
 const app = express();
-interval
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
