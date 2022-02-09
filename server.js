@@ -7,7 +7,7 @@ connectDB();
 const port = 8080;
 
 const app = express();
-app.use(interval);
+// app.use(interval);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
