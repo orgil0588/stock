@@ -8,10 +8,11 @@ interval()
 setInterval(interval, 3600000)
 
 
+
 const port = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
-  res.send(``)
+  res.send(``);
 });
 
 app.get("/data", async (req, res) => {
