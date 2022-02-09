@@ -5,7 +5,7 @@ const interval = require("./service/crawler");
 const app = express();
 connectDB();
 interval()
-setInterval(interval, 600000)
+setInterval(interval, 3600000)
 
 
 
