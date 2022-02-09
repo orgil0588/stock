@@ -4,13 +4,14 @@ const Sentiment = require("./models/Sentiment");
 const interval = require("./service/crawler");
 const app = express();
 connectDB();
+interval()
 setInterval(interval, 3600000)
-// commit
+
+
 const port = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
-  res.send("Hello World!")
-
+  res.send(``)
 });
 
 app.get("/data", async (req, res) => {

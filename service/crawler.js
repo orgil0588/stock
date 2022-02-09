@@ -61,6 +61,7 @@ const crawler = async () => {
         long: percentageResult,
         date: new Date(),
       };
+
       fxArr.push(fxObj);
     } catch (err) {
       console.log(err);
