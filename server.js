@@ -2,16 +2,14 @@ const express = require("express");
 const connectDB = require("./config/db");
 const Sentiment = require("./models/Sentiment");
 const interval = require("./service/crawler");
-
+const app = express();
 connectDB();
-interval()
+interval();
 // commit
 const port = process.env.PORT || 8080;
 
-const app = express();
-
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World!")
 });
 
 app.get("/data", async (req, res) => {
