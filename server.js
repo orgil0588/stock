@@ -1,18 +1,21 @@
 const express = require("express");
+const bp = require("body-parser");
 const connectDB = require("./config/db");
 const Sentiment = require("./models/Sentiment");
 const interval = require("./service/crawler");
 const app = express();
 connectDB();
-interval()
-setInterval(interval, 3600000)
-
-
 
 const port = process.env.PORT || 8080;
 
+app.use(bp.json());
+
 app.get("/", (req, res) => {
-  res.send(``);
+  interval();
+
+  res.status(200).json({
+    success: true,
+  });
 });
 
 app.get("/data", async (req, res) => {
