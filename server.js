@@ -3,6 +3,7 @@ const connectDB = require("./config/db");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const Sentiment = require("./models/Sentiment");
+const { append } = require("express/lib/response");
 
 
 connectDB();
@@ -88,7 +89,15 @@ const crawler = async () => {
 
 interval()
 
+const port = 8080
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
 
 
