@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
   console.log("first");
 });
 
+
 app.get("/data", async (req, res) => {
   try {
     const data = await Sentiment.find();
