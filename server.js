@@ -10,13 +10,13 @@ connectDB();
 const port = process.env.PORT || 8080;
 
 crawler();
-const intervaler = () => {
-  setInterval(() => {
-    crawler();
-  }, 3600000);
-};
+// const intervaler = () => {
+//   setInterval(() => {
+//     crawler();
+//   }, 3600000);
+// };
 
-intervaler();
+// intervaler();
 
 app.use(bp.json());
 app.use(cors());
