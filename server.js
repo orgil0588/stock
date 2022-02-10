@@ -3,28 +3,32 @@ const bp = require("body-parser");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const Sentiment = require("./models/Sentiment");
-const interval = require("./service/crawler");
+const crawler = require("./service/crawler");
 const app = express();
 connectDB();
 
 const port = process.env.PORT || 8080;
 
+crawler();
+console.log(`running ${port}`);
+const logger = () => {
+  setInterval(() => {
+    console.log(`running : ${port}`);
+  }, 600000);
+};
+logger();
+const intervaler = () => {
+  setInterval(() => {
+    crawler();
+  }, 3600000);
+};
+
+intervaler();
+
 app.use(bp.json());
 app.use(cors());
 app.get("/", (req, res) => {
-  interval()
-    .then((res) => {
-      res.status(200).json({
-        success: true,
-      });
-    })
-    .catch((err) => {
-      res.status(200).json *
-        {
-          success: false,
-          error: err,
-        };
-    });
+  res.send("hello world");
 });
 
 app.get("/data", async (req, res) => {
