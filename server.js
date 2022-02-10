@@ -10,13 +10,6 @@ connectDB();
 const port = process.env.PORT || 8080;
 
 crawler();
-console.log(`running ${port}`);
-const logger = () => {
-  setInterval(() => {
-    console.log(`running : ${port}`);
-  }, 600000);
-};
-logger();
 const intervaler = () => {
   setInterval(() => {
     crawler();
@@ -29,6 +22,7 @@ app.use(bp.json());
 app.use(cors());
 app.get("/", (req, res) => {
   res.send("hello world");
+  console.log("first");
 });
 
 app.get("/data", async (req, res) => {
